@@ -1,0 +1,242 @@
+[
+  {
+    "question": "What is healthcare?",
+    "answer": "Healthcare includes services that maintain health, prevent illness, diagnose conditions, treat disease, restore function, and improve quality of life.",
+    "reference": {
+      "heading": "What Healthcare Includes",
+      "page": 1
+    }
+  },
+  {
+    "question": "What is the difference between healthcare and public health?",
+    "answer": "Healthcare focuses on individual care, while public health focuses on improving health at the population level through prevention, surveillance, policy, and health promotion.",
+    "reference": {
+      "heading": "What Healthcare Includes",
+      "page": 1
+    }
+  },
+  {
+    "question": "What does primary health care emphasize?",
+    "answer": "Primary health care emphasizes accessible first-contact care, prevention, community engagement, and coordinated services across the life course.",
+    "reference": {
+      "heading": "Primary Health Care",
+      "page": 1
+    }
+  },
+  {
+    "question": "What is universal health coverage?",
+    "answer": "Universal health coverage means people can access needed health services without suffering financial hardship.",
+    "reference": {
+      "heading": "Universal Health Coverage",
+      "page": 1
+    }
+  },
+  {
+    "question": "What are the main dimensions of quality care?",
+    "answer": "Quality care is typically described by safety, effectiveness, timeliness, efficiency, equity, and people-centeredness.",
+    "reference": {
+      "heading": "Quality of Care",
+      "page": 1
+    }
+  },
+  {
+    "question": "What is patient safety?",
+    "answer": "Patient safety is the prevention of avoidable harm during the delivery of healthcare.",
+    "reference": {
+      "heading": "Patient Safety",
+      "page": 1
+    }
+  },
+  {
+    "question": "What are common patient safety risks?",
+    "answer": "Common risks include healthcare-associated infections, medication errors, diagnostic errors, unsafe surgery, falls, and communication failures.",
+    "reference": {
+      "heading": "Patient Safety",
+      "page": 1
+    }
+  },
+  {
+    "question": "What is a communicable disease?",
+    "answer": "A communicable disease is an illness caused by an infectious agent that can spread directly or indirectly between people, animals, vectors, food, water, or the environment.",
+    "reference": {
+      "heading": "Communicable Diseases",
+      "page": 1
+    }
+  },
+  {
+    "question": "How is tuberculosis controlled?",
+    "answer": "Tuberculosis control relies on early diagnosis, adherence to multi-drug treatment, contact tracing, and strong public health systems.",
+    "reference": {
+      "heading": "Tuberculosis",
+      "page": 1
+    }
+  },
+  {
+    "question": "Why is HIV care important in healthcare systems?",
+    "answer": "HIV care is important because it requires testing, long-term treatment, stigma reduction, and continuous access to antiretroviral therapy.",
+    "reference": {
+      "heading": "HIV and Viral Hepatitis",
+      "page": 1
+    }
+  },
+  {
+    "question": "What is antimicrobial resistance?",
+    "answer": "Antimicrobial resistance occurs when microorganisms evolve so that medicines used to treat infections become less effective or ineffective.",
+    "reference": {
+      "heading": "Antimicrobial Resistance",
+      "page": 1
+    }
+  },
+  {
+    "question": "Why are noncommunicable diseases important?",
+    "answer": "Noncommunicable diseases are major chronic health problems that contribute significantly to disability, death, and long-term healthcare needs.",
+    "reference": {
+      "heading": "Noncommunicable Diseases",
+      "page": 1
+    }
+  },
+  {
+    "question": "What are some major noncommunicable diseases?",
+    "answer": "Major noncommunicable diseases include cardiovascular disease, cancer, diabetes, chronic respiratory disease, and many mental health conditions.",
+    "reference": {
+      "heading": "Noncommunicable Diseases",
+      "page": 1
+    }
+  },
+  {
+    "question": "What increases cardiovascular disease risk?",
+    "answer": "Risk increases with tobacco use, poor diet, high blood pressure, diabetes, obesity, air pollution, and low physical activity.",
+    "reference": {
+      "heading": "Cardiovascular Health",
+      "page": 1
+    }
+  },
+  {
+    "question": "Why is cancer care system-intensive?",
+    "answer": "Cancer care requires prevention, screening, diagnosis, pathology, surgery, radiation, systemic therapy, palliative care, and survivorship support.",
+    "reference": {
+      "heading": "Cancer Care",
+      "page": 1
+    }
+  },
+  {
+    "question": "What is diabetes?",
+    "answer": "Diabetes is a chronic metabolic disorder characterized by elevated blood glucose and long-term risk of complications affecting many organs.",
+    "reference": {
+      "heading": "Diabetes and Metabolic Health",
+      "page": 1
+    }
+  },
+  {
+    "question": "What affects respiratory health?",
+    "answer": "Respiratory health is affected by tobacco smoke, indoor and outdoor air pollution, allergens, occupational hazards, and infectious agents.",
+    "reference": {
+      "heading": "Respiratory Health",
+      "page": 1
+    }
+  },
+  {
+    "question": "Why is mental health part of healthcare?",
+    "answer": "Mental health affects thinking, feeling, relationships, and daily functioning, and conditions like anxiety and depression contribute substantially to disability.",
+    "reference": {
+      "heading": "Mental Health",
+      "page": 1
+    }
+  },
+  {
+    "question": "What services are included in maternal and newborn health?",
+    "answer": "Maternal and newborn health includes antenatal care, skilled birth attendance, emergency obstetric care, postpartum monitoring, newborn resuscitation, breastfeeding support, and vaccination.",
+    "reference": {
+      "heading": "Maternal and Newborn Health",
+      "page": 1
+    }
+  },
+  {
+    "question": "Why is immunization important?",
+    "answer": "Immunization reduces illness, disability, and death from infectious disease and supports both individual and community protection.",
+    "reference": {
+      "heading": "Immunization",
+      "page": 1
+    }
+  },
+  {
+    "question": "How does nutrition affect health?",
+    "answer": "Nutrition affects growth, immunity, pregnancy outcomes, recovery, metabolic health, and healthy aging.",
+    "reference": {
+      "heading": "Nutrition and Food Safety",
+      "page": 1
+    }
+  },
+  {
+    "question": "What does environmental health study?",
+    "answer": "Environmental health studies how air, water, sanitation, chemicals, housing, and climate-related exposures affect health.",
+    "reference": {
+      "heading": "Environmental Health",
+      "page": 1
+    }
+  },
+  {
+    "question": "Why does the health workforce matter?",
+    "answer": "The health workforce matters because access, continuity, and quality of care depend on trained and well-distributed staff.",
+    "reference": {
+      "heading": "Health Workforce",
+      "page": 1
+    }
+  },
+  {
+    "question": "What is health financing?",
+    "answer": "Health financing refers to how money is raised, pooled, allocated, and used to pay for health services.",
+    "reference": {
+      "heading": "Health Financing",
+      "page": 1
+    }
+  },
+  {
+    "question": "What is digital health?",
+    "answer": "Digital health includes electronic records, telemedicine, remote monitoring, clinical decision support, and patient-facing health applications.",
+    "reference": {
+      "heading": "Digital Health",
+      "page": 1
+    }
+  },
+  {
+    "question": "Why is health data important?",
+    "answer": "Health data helps track disease burden, service use, quality, mortality, and risk factors, which supports better policy and care decisions.",
+    "reference": {
+      "heading": "Health Information and Data",
+      "page": 1
+    }
+  },
+  {
+    "question": "What is emergency preparedness in healthcare?",
+    "answer": "Emergency preparedness is the ability to maintain care and respond to outbreaks, disasters, and other crises through planning, surveillance, supplies, and coordination.",
+    "reference": {
+      "heading": "Emergency Preparedness",
+      "page": 1
+    }
+  },
+  {
+    "question": "What does health equity mean?",
+    "answer": "Health equity means everyone has a fair opportunity to attain their full health potential and that avoidable differences in health are reduced.",
+    "reference": {
+      "heading": "Equity in Healthcare",
+      "page": 1
+    }
+  },
+  {
+    "question": "Why is trust important in healthcare?",
+    "answer": "Trust affects whether people seek care, follow advice, return for follow-up, and accept vaccination or long-term treatment.",
+    "reference": {
+      "heading": "Trust and Communication",
+      "page": 1
+    }
+  },
+  {
+    "question": "Why is this document useful for RAG?",
+    "answer": "It is modular, text-heavy, and organized by topic, making it easier to chunk, index, and retrieve accurately in a RAG system.",
+    "reference": {
+      "heading": "Why This Works for RAG",
+      "page": 1
+    }
+  }
+]
