@@ -506,10 +506,12 @@ chat_html = "".join(
     for role, msg in st.session_state.chat
 )
 
+empty_msg = '<p class="empty-chat">No messages yet. Ask something below.</p>'
+
 st.markdown(
-    f'<div class="chat-area">'
-    f'{chat_html if chat_html else "<p class=\'empty-chat\'>No messages yet. Ask something below.</p>"}'
-    f'</div>',
+    f"<div class='chat-area'>"
+    f"{chat_html if chat_html else empty_msg}"
+    f"</div>",
     unsafe_allow_html=True
 )
 
