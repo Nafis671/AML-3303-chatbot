@@ -7,7 +7,7 @@ import time
 # PAGE CONFIG
 # =========================
 st.set_page_config(
-    page_title="SupportBot Studio",
+    page_title="RAG Tutor",
     page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -24,25 +24,24 @@ st.markdown("""
     header {visibility: hidden;}
 
     /* ══════════════════════════════════════
-       PALETTE
-       --blue-dark  : #1e40af   (header, user bubble)
-       --blue-mid   : #3b82f6   (accents, borders)
-       --blue-light : #dbeafe   (sidebar, bot bubble bg)
-       --blue-pale  : #eff6ff   (main bg, chat bg)
-       --white      : #ffffff
+       PALETTE  (white-first redesign)
+       --bg         : #ffffff   (ALL backgrounds)
+       --blue-dark  : #1e40af   (header, user bubble, primary btn)
+       --blue-mid   : #3b82f6   (accents, focus rings)
+       --blue-light : #dbeafe   (bot bubble)
+       --border     : #e2e8f0   (subtle dividers)
        --text-dark  : #1e3a5f
-       --text-mid   : #3b5ea6
-       --text-muted : #6b90c4
+       --text-muted : #94a3b8
     ══════════════════════════════════════ */
 
-    /* ── Global white background ── */
+    /* ── Global WHITE background ── */
     html, body,
     [data-testid="stApp"],
     [data-testid="stAppViewContainer"],
     [data-testid="stAppViewContainer"] > section,
     .main, .main > div,
     [data-testid="stVerticalBlock"] {
-        background-color: #eff6ff !important;
+        background-color: #ffffff !important;
         color: #1e3a5f !important;
     }
 
@@ -81,10 +80,10 @@ st.markdown("""
         border: 1px solid #93c5fd;
     }
 
-    /* ── Chat area ── */
+    /* ── Chat area — white with a light border ── */
     .chat-area {
         background: #ffffff;
-        border: 1px solid #bfdbfe;
+        border: 1px solid #e2e8f0;
         border-radius: 10px;
         padding: 14px 16px;
         height: calc(100vh - 225px);
@@ -137,15 +136,15 @@ st.markdown("""
     .avatar-user { background: #1e40af; color: #ffffff; }
     .avatar-bot  { background: #bfdbfe; color: #1e40af; }
 
-    .empty-chat { color: #93c5fd; font-size: 0.85rem; text-align: center; padding-top: 80px; }
+    .empty-chat { color: #94a3b8; font-size: 0.85rem; text-align: center; padding-top: 80px; }
 
-    /* ── Sidebar ── */
+    /* ── Sidebar — pure white ── */
     section[data-testid="stSidebar"],
     section[data-testid="stSidebar"] > div,
     section[data-testid="stSidebar"] > div > div,
     section[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
-        background: #dbeafe !important;
-        border-right: 1px solid #93c5fd;
+        background: #ffffff !important;
+        border-right: 1px solid #e2e8f0;
     }
     section[data-testid="stSidebar"] .stMarkdown p,
     section[data-testid="stSidebar"] .stCaption,
@@ -156,21 +155,23 @@ st.markdown("""
         color: #3b82f6 !important; margin: 12px 0 5px 0;
     }
 
-    /* ── Doc row ── */
+    /* ── Doc row — white with border ── */
     .doc-row {
-        background: #eff6ff; border: 1px solid #93c5fd; border-radius: 5px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 5px;
         padding: 4px 9px; margin-bottom: 4px;
         font-size: 0.78rem; color: #1e3a5f;
         overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     }
 
-    /* ── File uploader ── */
+    /* ── File uploader — white ── */
     div[data-testid="stFileUploader"],
     div[data-testid="stFileUploader"] > div,
     div[data-testid="stFileUploader"] > div > div,
     div[data-testid="stFileUploader"] section,
     div[data-testid="stFileUploader"] label {
-        background: #eff6ff !important;
+        background: #ffffff !important;
         color: #1e40af !important;
     }
     div[data-testid="stFileUploader"] > div {
@@ -178,7 +179,7 @@ st.markdown("""
         border-radius: 8px !important;
     }
     div[data-testid="stFileUploader"] button {
-        background: #dbeafe !important;
+        background: #ffffff !important;
         color: #1e40af !important;
         border: 1px solid #3b82f6 !important;
     }
@@ -197,28 +198,28 @@ st.markdown("""
     }
     .stButton > button[kind="primary"]:hover { background: #1d4ed8 !important; }
     .stButton > button[kind="secondary"] {
-        background: #dbeafe !important; color: #1e40af !important; border: 1px solid #93c5fd !important;
+        background: #ffffff !important; color: #1e40af !important; border: 1px solid #bfdbfe !important;
     }
-    .stButton > button[kind="secondary"]:hover { background: #bfdbfe !important; }
+    .stButton > button[kind="secondary"]:hover { background: #dbeafe !important; }
 
     /* Logout button */
     div[data-testid="stSidebar"] .logout-area button {
-        background: #eff6ff !important;
+        background: #ffffff !important;
         color: #1e40af !important;
-        border: 1px solid #93c5fd !important;
+        border: 1px solid #e2e8f0 !important;
     }
     div[data-testid="stSidebar"] .logout-area button:hover {
         background: #dbeafe !important;
     }
 
-    /* ── Text input ── */
+    /* ── Text input — white ── */
     .stTextInput input {
         background: #ffffff !important;
-        border: 1px solid #93c5fd !important;
+        border: 1px solid #e2e8f0 !important;
         color: #1e3a5f !important;
         border-radius: 8px !important;
     }
-    .stTextInput input::placeholder { color: #93c5fd !important; }
+    .stTextInput input::placeholder { color: #94a3b8 !important; }
     .stTextInput input:focus {
         border-color: #1e40af !important;
         box-shadow: 0 0 0 2px rgba(30,64,175,0.12) !important;
@@ -228,9 +229,43 @@ st.markdown("""
     div[data-testid="stHorizontalBlock"]:last-child {
         position: sticky;
         bottom: 0;
-        background: #eff6ff;
+        background: #ffffff;
         padding: 6px 0 4px 0;
         z-index: 100;
+    }
+
+    /* ── Char counter ── */
+    .char-counter {
+        font-size: 0.70rem;
+        color: #94a3b8;
+        text-align: right;
+        margin-top: -4px;
+        margin-bottom: 2px;
+    }
+    .char-counter.near-limit { color: #f97316; }
+    .char-counter.at-limit   { color: #ef4444; font-weight: 600; }
+
+    /* ── Fix send button vertical alignment ── */
+    div[data-testid="stHorizontalBlock"]:last-child
+    > div[data-testid="column"]:last-child
+    > div[data-testid="stVerticalBlock"] {
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        height: auto !important;
+    }
+    div[data-testid="stHorizontalBlock"]:last-child
+    > div[data-testid="column"]:last-child
+    > div[data-testid="stVerticalBlock"]
+    > div {
+        width: 100% !important;
+    }
+
+    /* ── Send button disabled state ── */
+    div[data-testid="stHorizontalBlock"]:last-child
+    > div[data-testid="column"]:last-child
+    button:disabled {
+        cursor: not-allowed !important;
+        opacity: 0.6 !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -243,7 +278,7 @@ for key, default in [
     ("logged_in", False), ("username", ""), ("chat", []),
     ("loaded", False), ("auth_mode", "Login"),
     ("pending_file", None), ("pending_file_path", None),
-    ("uploader_key", 0)
+    ("uploader_key", 0), ("input_key", 0), ("waiting", False), ("pending_message", None)
 ]:
     if key not in st.session_state:
         st.session_state[key] = default
@@ -256,7 +291,7 @@ if not st.session_state.logged_in:
     _, mid, _ = st.columns([1, 2, 1])
     with mid:
         st.markdown("<br>", unsafe_allow_html=True)
-        st.markdown("## SupportBot Studio")
+        st.markdown("## RAG Tutor")
         st.markdown("---")
 
         c1, c2 = st.columns(2)
@@ -427,8 +462,8 @@ user_initial = st.session_state.username[0].upper() if st.session_state.username
 st.markdown(f"""
 <div class="top-bar">
     <div>
-        <p class="top-bar-title">SupportBot Studio</p>
-        <p class="top-bar-sub">AI-powered customer support assistant</p>
+        <p class="top-bar-title">RAG Tutor</p>
+        <p class="top-bar-sub">AI-powered document assistant</p>
     </div>
     <span class="user-badge">{st.session_state.username}</span>
 </div>
@@ -486,21 +521,50 @@ in_col, send_col = st.columns([11, 1])
 with in_col:
     user_input = st.text_input(
         "", placeholder="Ask something about your documents...",
-        key="chat_input", label_visibility="collapsed"
+        key=f"chat_input_{st.session_state.input_key}",
+        label_visibility="collapsed",
+        max_chars=200,
+        disabled=st.session_state.waiting,
     )
-with send_col:
-    send = st.button("Send", type="primary", use_container_width=True)
+    # Counter lives inside the same column so both columns stay equal height
+    char_count = len(user_input) if user_input else 0
+    counter_class = "at-limit" if char_count >= 200 else ("near-limit" if char_count >= 160 else "")
+    st.markdown(
+        f'<div class="char-counter {counter_class}">{char_count}/200</div>',
+        unsafe_allow_html=True
+    )
 
-if send and user_input.strip():
+# Send is disabled when: waiting for response OR no text typed
+char_count = len(user_input) if user_input else 0
+send_disabled = st.session_state.waiting or (char_count == 0)
+
+with send_col:
+    send = st.button(
+        "Send", type="primary", use_container_width=True,
+        disabled=send_disabled,
+    )
+
+# ── PHASE 1: Send clicked → stash message, clear box, block UI, rerun immediately ──
+if send and user_input and user_input.strip():
+    st.session_state.pending_message = user_input.strip()
+    st.session_state.input_key += 1   # clears the text box
+    st.session_state.waiting = True
+    st.rerun()
+
+# ── PHASE 2: waiting=True and a message is stashed → fire the API, then re-enable ──
+if st.session_state.waiting and st.session_state.get("pending_message"):
+    pending = st.session_state.pending_message
     try:
         res = requests.post(
             "http://127.0.0.1:5000/chat",
-            json={"message": user_input, "username": st.session_state.username}
+            json={"message": pending, "username": st.session_state.username}
         )
         reply = res.json().get("response", "No response") if res.status_code == 200 else "Error from backend"
     except Exception as e:
         reply = f"Backend error: {e}"
 
-    st.session_state.chat.append(("user", user_input))
+    st.session_state.chat.append(("user", pending))
     st.session_state.chat.append(("assistant", reply))
+    st.session_state.pending_message = None
+    st.session_state.waiting = False
     st.rerun()
