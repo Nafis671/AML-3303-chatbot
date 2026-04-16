@@ -39,6 +39,11 @@ A Retrieval-Augmented Generation (RAG) chatbot that lets users upload documents 
 ```bash
 pip install flask openai faiss-cpu pypdf PyPDF2 python-dotenv streamlit numpy
 ```
+or
+
+```bash
+pip install -r requirements.txt
+```
 
 ### 2. Create a `.env` file
 
