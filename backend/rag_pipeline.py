@@ -27,7 +27,7 @@ def answer_question(question, vector_store, client, username=None):
                 "content": (
                     "You are a helpful AI customer support assistant. "
                     "Answer ONLY using the provided context. "
-                    "If the context does not contain the answer, say you don't know."
+                    "If the context does not contain the answer, say I don't have enough information in the uploaded documents yet. Please upload a PDF first."
                 )
             },
             {
