@@ -1,80 +1,140 @@
-# 🤖 AI-Powered Support Chatbot (RAG Document Retrieval System)
-
-A Retrieval-Augmented Generation (RAG) based AI chatbot that allows users to ask questions over documents (PDFs, text files, etc.) using embeddings, FAISS vector search, and OpenAI LLM responses.
-
----
-
-## 🚀 Project Features
-
-- 📄 PDF document ingestion and processing
-- 🔍 FAISS vector similarity search
-- 🧠 OpenAI LLM integration for intelligent responses
-- ⚡ Flask backend API
-- 💬 Streamlit frontend chat UI
-- 📚 Chat history tracking
-- 🧩 RAG (Retrieval Augmented Generation) pipeline
+# SupportBot Studio – AI-Powered Customer Support Chatbot Builder
+A Retrieval-Augmented Generation (RAG) chatbot that lets users upload documents and ask questions about them. Built with Flask, OpenAI, and FAISS.
 
 ---
 
-## 🧰 Tech Stack
+## Features
 
-- Python
-- Flask
-- Streamlit
-- OpenAI API
-- FAISS (vector database)
-- PyPDF
-- NumPy
-- Tiktoken
-- Python-dotenv
+- **User authentication** — register and login with per-user data isolation
+- **Document ingestion** — upload PDF, TXT, or JSON files and index them into a vector store
+- **RAG-powered chat** — answers questions using only content from your uploaded documents
+- **Chat history** — messages are persisted per user in a SQLite database
+- **Document management** — list and delete uploaded documents
+- **Streamlit UI** — optional frontend via `streamlit_app.py`
 
 ---
 
-## ⚙️ Project Setup Guide
+## Project Structure
+
+```
+├── app.py               # Flask API server (routes and app init)
+├── db.py                # SQLite database helpers (users, chats, documents)
+├── ingest.py            # File loading, chunking, and embedding ingestion
+├── rag_pipeline.py      # RAG query pipeline (embed → retrieve → generate)
+├── vector_store.py      # In-memory FAISS vector store with metadata filtering
+├── embeddings.py        # OpenAI embedding helper
+├── document_loader.py   # PDF text extraction (pypdf)
+├── streamlit_app.py     # Streamlit frontend (optional)
+├── utils.py             # Utility functions (currently empty)
+├── chat_history.db      # SQLite database (auto-created on first run)
+└── .env                 # Environment variables (not committed)
+```
 
 ---
 
-## 1. Clone the Repository
+## Setup
+
+### 1. Clone the repo and install dependencies
+
 ```bash
-git clone <your-repo-url>
-cd ai-support-rag-chatbot
+pip install flask openai faiss-cpu pypdf PyPDF2 python-dotenv streamlit numpy
+```
 
-## 2. Create the virtual environment
+### 2. Create a `.env` file
 
-python -m venv venv
-## 3.activate virtual environment
-venv\Scripts\activate
+```
+OPENAI_API_KEY=sk-...
+```
 
-## 4. Install Dependencies
-pip install flask streamlit openai python-dotenv faiss-cpu pypdf numpy tiktoken requests
+### 3. Run the Flask server
 
-##Setup Environment Variables
-OPENAI_API_KEY=your_api_key_here
-
-## 5. Initialize Database
-cd backend
-python
-## then run 
-from db import init_db
-init_db()
-exit()
-
-## 6. Run Backend Server (Flask)
+```bash
 python app.py
+```
 
-## check the backend server on
- http://127.0.0.1:5000
+The server starts on `http://localhost:5000`.
 
-## 7. Run Frontend (Streamlit UI)
+### 4. (Optional) Run the Streamlit frontend
+
 ```bash
-cd frontend
 streamlit run streamlit_app.py
+```
 
-## 8.Test Backend API
-http://127.0.0.1:5000/history
+---
 
-#expected output
-[]
+## API Reference
 
-## 9. test documents 
- test the documents accordingly
+All requests and responses use JSON unless noted.
+
+### Auth
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/register` | Create a new account |
+| `POST` | `/login` | Authenticate an existing user |
+
+**Register / Login body:**
+```json
+{ "username": "alice", "password": "secret123" }
+```
+
+---
+
+### Documents
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/upload` | Upload and index a document |
+| `GET` | `/documents?username=alice` | List documents for a user |
+| `DELETE` | `/documents/delete` | Delete a document |
+
+**Upload body:**
+```json
+{ "file_path": "path/to/file.pdf", "username": "alice" }
+```
+
+**Delete body:**
+```json
+{ "username": "alice", "filename": "file.pdf" }
+```
+
+Supported file types: `.pdf`, `.txt`, `.json`
+
+---
+
+### Chat
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/chat` | Send a message and get a RAG answer |
+| `GET` | `/history?username=alice` | Retrieve chat history |
+| `DELETE` | `/clear-history` | Clear all messages for a user |
+
+**Chat body:**
+```json
+{ "message": "What does the document say about pricing?", "username": "alice" }
+```
+
+**Clear history body:**
+```json
+{ "username": "alice" }
+```
+
+---
+
+## How It Works
+
+1. **Ingestion** — uploaded files are read, split into 500-character chunks, and each chunk is embedded using `text-embedding-3-small`. Embeddings are stored in an in-memory FAISS index with username and filename metadata.
+
+2. **Retrieval** — when a user sends a message, it is embedded and the top-3 most similar chunks are retrieved, filtered to only the current user's documents.
+
+3. **Generation** — the retrieved chunks are passed as context to `gpt-4o-mini`, which answers based only on that context. If no relevant chunks are found, the user is prompted to upload a document first.
+
+---
+
+## Notes & Limitations
+
+- The vector store is **in-memory only** — all indexed documents are lost when the server restarts. You would need to re-upload files after a restart.
+- Passwords are hashed with SHA-256 but there is no salting. For production use, switch to `bcrypt` or `argon2`.
+- The Flask server runs in debug mode by default (`debug=True`). Disable this for production.
+- File paths passed to `/upload` must be accessible on the server's filesystem.
